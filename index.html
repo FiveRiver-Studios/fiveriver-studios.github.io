@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProNexus Construction | Kelowna BC - Custom Homes & Renovations</title>
+  <meta name="description" content="ProNexus Construction: Kelowna's premier custom home builder and renovation experts. Quality craftsmanship, transparent pricing, on-time delivery."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .hero {
+      min-height: 90vh; position: relative;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--clr-darker) 0%, var(--clr-dark) 100%);
+      overflow: hidden; margin-top: -80px; padding-top: 80px;
+    }
+    .hero-bg { position: absolute; inset: 0; opacity: 0.4;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a1a2e" width="1200" height="800"/><path fill="%23222244" d="M0 500 Q 300 400 600 500 T 1200 500 L 1200 800 L 0 800 Z"/><path fill="%231b1b38" d="M0 600 Q 400 500 800 600 T 1200 600 L 1200 800 L 0 800 Z"/></svg>') center/cover no-repeat;
+    }
+    .hero-overlay { position: absolute; inset: 0;
+      background: linear-gradient(rgba(15,15,26,.7), rgba(15,15,26,.9));
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 750px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,150,62,.15); border: 1px solid rgba(200,150,62,.3);
+      padding: 8px 20px; border-radius: 50px;
+      font-size: 0.85rem; color: var(--clr-primary-light); margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: var(--ff-display); font-size: 4rem; font-weight: 700;
+      color: var(--clr-white); line-height: 1.1; margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--clr-primary); }
+    .hero p {
+      font-size: 1.2rem; color: rgba(255,255,255,.7);
+      line-height: 1.7; margin-bottom: 40px; max-width: 560px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 60px; margin-top: 60px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .hero-stat h3 { font-family: var(--ff-display); font-size: 2.2rem; color: var(--clr-primary); }
+    .hero-stat p { font-size: 0.85rem; color: rgba(255,255,255,.5); margin: 0; }
+
+    .home-services { background: var(--clr-light); }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(200,150,62,.1); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; font-size: 1.5rem;
+    }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .service-card p { color: var(--clr-gray); font-size: 0.95rem; line-height: 1.7; }
+
+    .home-about { background: var(--clr-white); }
+    .home-about .grid-2 { align-items: center; }
+    .about-image-placeholder {
+      width: 100%; height: 450px; border-radius: 12px;
+      background: linear-gradient(135deg, #2c2c4a 0%, #1a1a2e 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.15); font-size: 4rem;
+    }
+    .home-about h2 { font-size: 2.2rem; }
+    .home-about p { color: var(--clr-gray); margin-bottom: 16px; line-height: 1.7; }
+    .about-features { margin-top: 24px; display: grid; gap: 12px; }
+    .about-features li {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 500; font-size: 0.95rem;
+    }
+    .about-features li::before {
+      content: '\2713'; color: var(--clr-primary); font-weight: 700; font-size: 1.1rem;
+    }
+
+    .home-cta {
+      background: linear-gradient(135deg, var(--clr-darker) 0%, var(--clr-dark) 100%);
+      text-align: center; color: var(--clr-white);
+    }
+    .home-cta h2 { color: var(--clr-white); }
+    .home-cta p { color: rgba(255,255,255,.5); margin: 0 auto 32px; }
+
+    @media (max-width: 768px) {
+      .hero { min-height: 80vh; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+      .hero-stats { gap: 30px; flex-wrap: wrap; }
+      .hero-stat h3 { font-size: 1.6rem; }
+      .home-about h2 { font-size: 1.8rem; }
+      .about-image-placeholder { height: 280px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="clean-bc-homes.html">Clean BC Grant</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">&#9733; Kelowna's Trusted Builder</div>
+      <h1>Building <span>Exceptional</span> Homes in the Okanagan</h1>
+      <p>From custom dream homes to precision renovations, ProNexus Construction delivers unmatched craftsmanship, transparent communication, and on-time delivery across Kelowna and the Okanagan Valley.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-primary">Start Your Project &#8594;</a>
+        <a href="projects.html" class="btn btn-outline">View Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><h3>150+</h3><p>Projects Completed</p></div>
+        <div class="hero-stat"><h3>12+</h3><p>Years Experience</p></div>
+        <div class="hero-stat"><h3>98%</h3><p>Client Satisfaction</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Premium Residential Construction Services</h2>
+        <p class="section-desc">From foundation to finishing touches, we bring decades of expertise to every project in Kelowna and beyond.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#9961;</div>
+          <h3>Custom Home Building</h3>
+          <p>We design and build your dream home from the ground up, tailored to your lifestyle and the stunning Okanagan landscape.</p>
+        </div>
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#128295;</div>
+          <h3>Home Renovations</h3>
+          <p>Transform your existing space with our full-service renovation expertise &mdash; kitchens, bathrooms, basements, and more.</p>
+        </div>
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#127968;</div>
+          <h3>Additions &amp; Extensions</h3>
+          <p>Expand your living space seamlessly with structurally sound, beautifully finished home additions.</p>
+        </div>
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#128736;</div>
+          <h3>Project Management</h3>
+          <p>End-to-end project oversight ensuring your build stays on schedule, on budget, and above code.</p>
+        </div>
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#127912;</div>
+          <h3>Design-Build</h3>
+          <p>Integrated design and construction services for a streamlined, single-contact experience from concept to completion.</p>
+        </div>
+        <div class="card service-card fade-in">
+          <div class="service-icon">&#9881;</div>
+          <h3>Specialty Finishes</h3>
+          <p>Custom millwork, premium flooring, tile work, and fine interior finishes that set your home apart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-about">
+    <div class="container grid-2">
+      <div class="about-image-placeholder">&#127968;</div>
+      <div>
+        <p class="section-label">About ProNexus</p>
+        <h2>Kelowna's Premier <span style="color:var(--clr-primary)">Builder &amp; Renovator</span></h2>
+        <p>Founded in Kelowna, ProNexus Construction has been shaping the Okanagan's residential landscape for over a decade. We believe a home should be more than just a structure &mdash; it should be a reflection of how you want to live.</p>
+        <p>Our team of skilled tradespeople, designers, and project managers works closely with you at every stage, ensuring your vision is realized with precision, integrity, and pride.</p>
+        <ul class="about-features">
+          <li>Fully licensed, insured, and bonded in British Columbia</li>
+          <li>Certified by the Canadian Home Builders' Association</li>
+          <li>5-year warranty on all structural work</li>
+          <li>Locally owned and operated</li>
+        </ul>
+        <a href="about.html" class="btn btn-outline-dark" style="margin-top:24px">Learn More &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-cta">
+    <div class="container">
+      <p class="section-label" style="color:var(--clr-primary-light)">Get In Touch</p>
+      <h2 class="section-title" style="color:var(--clr-white)">Ready to Build Your Dream Home?</h2>
+      <p class="section-desc">Contact us for a free consultation and estimate. Let's bring your vision to life.</p>
+      <a href="contact.html" class="btn btn-primary">Start Your Project &#8594;</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <p>&copy; 2026 ProNexus Construction Inc. All rights reserved. Kelowna, BC.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function(){
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(l){
+      l.addEventListener('click', function(){
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+  </script>
+</body>
+</html>

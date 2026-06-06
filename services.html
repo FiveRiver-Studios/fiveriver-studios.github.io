@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | ProNexus Construction - Kelowna BC</title>
+  <meta name="description" content="ProNexus Construction offers custom home building, renovations, additions, and design-build services in Kelowna and the Okanagan."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .service-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .service-detail-grid.reverse { direction: rtl; }
+    .service-detail-grid.reverse > * { direction: ltr; }
+    .service-detail-grid:not(:last-child) { margin-bottom: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--clr-border); }
+    .service-detail-img {
+      width: 100%; height: 350px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: rgba(255,255,255,.1);
+    }
+    .service-detail-content h3 { font-family: var(--ff-display); font-size: 1.8rem; margin-bottom: 16px; }
+    .service-detail-content p { color: var(--clr-gray); line-height: 1.7; margin-bottom: 16px; }
+
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .process-step { text-align: center; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--clr-primary); color: var(--clr-white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 700; margin: 0 auto 16px;
+    }
+    .process-step h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .process-step p { color: var(--clr-gray); font-size: 0.85rem; line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .service-detail-grid { grid-template-columns: 1fr; gap: 30px; }
+      .service-detail-grid.reverse { direction: ltr; }
+      .service-detail-img { height: 220px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="clean-bc-homes.html">Clean BC Grant</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color:var(--clr-primary-light)">Our Services</p>
+      <h1>Comprehensive <span style="color:var(--clr-primary)">Residential</span> Construction</h1>
+      <p>From concept to completion, we offer a full range of construction services tailored to your needs.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-img" style="background:linear-gradient(135deg,#2c2c4a,#1a1a2e)">&#9961;</div>
+        <div class="service-detail-content">
+          <p class="section-label">01</p>
+          <h3>Custom Home Building</h3>
+          <p>Your dream home deserves more than a blueprint &mdash; it deserves a builder who listens. We guide you through every phase of construction, from site preparation and foundation work to framing, finishing, and final walkthrough.</p>
+          <p>Every custom home we build is tailored to its site, your lifestyle, and the natural beauty of the Okanagan. Whether it's a modern lakeside retreat or a family home in the hills, we deliver exceptional quality inside and out.</p>
+          <a href="contact.html" class="btn btn-outline-dark">Discuss Your Project &#8594;</a>
+        </div>
+      </div>
+
+      <div class="service-detail-grid reverse">
+        <div class="service-detail-img" style="background:linear-gradient(135deg,#3a3a5a,#222244)">&#128295;</div>
+        <div class="service-detail-content">
+          <p class="section-label">02</p>
+          <h3>Home Renovations</h3>
+          <p>Breathe new life into your existing space. Our renovation team transforms kitchens, bathrooms, basements, and entire homes with precision craftsmanship and minimal disruption to your daily life.</p>
+          <p>We handle everything from design and permitting to demolition, construction, and finishing. Our goal is to create spaces that feel like they were always meant to be there.</p>
+          <a href="contact.html" class="btn btn-outline-dark">Plan Your Renovation &#8594;</a>
+        </div>
+      </div>
+
+      <div class="service-detail-grid">
+        <div class="service-detail-img" style="background:linear-gradient(135deg,#2a2a50,#1e1e3a)">&#127968;</div>
+        <div class="service-detail-content">
+          <p class="section-label">03</p>
+          <h3>Additions &amp; Extensions</h3>
+          <p>Need more room? We design and build seamless home additions that blend perfectly with your existing structure. From second-storey additions to bump-outs and garage conversions, we maximize your space and property value.</p>
+          <p>Our structural expertise ensures your addition is safe, energy-efficient, and visually harmonious with the original home.</p>
+          <a href="contact.html" class="btn btn-outline-dark">Explore Your Options &#8594;</a>
+        </div>
+      </div>
+
+      <div class="service-detail-grid reverse">
+        <div class="service-detail-img" style="background:linear-gradient(135deg,#3a3a50,#252540)">&#127912;</div>
+        <div class="service-detail-content">
+          <p class="section-label">04</p>
+          <h3>Design-Build Services</h3>
+          <p>Our integrated design-build approach streamlines the entire process. With one team handling both design and construction, you get a single point of contact, faster timelines, and better cost control.</p>
+          <p>Our in-house designers work alongside our builders from day one, ensuring your vision is achievable, practical, and beautiful.</p>
+          <a href="contact.html" class="btn btn-outline-dark">Learn About Design-Build &#8594;</a>
+        </div>
+      </div>
+
+      <div class="service-detail-grid">
+        <div class="service-detail-img" style="background:linear-gradient(135deg,#303050,#202038)">&#9881;</div>
+        <div class="service-detail-content">
+          <p class="section-label">05</p>
+          <h3>Energy-Efficient Upgrades</h3>
+          <p>Lower your utility bills and reduce your carbon footprint with our energy-efficient renovation services. As a CleanBC Energy Savings Program registered contractor, we help you access rebates for heat pumps, insulation, windows, doors, and more.</p>
+          <p>We handle the rebate paperwork so you save &mdash; both on energy costs and on the upfront price of upgrades.</p>
+          <a href="clean-bc-homes.html" class="btn btn-outline-dark">Explore Clean BC Grants &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Process</p>
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-desc">A transparent, proven approach that keeps your project on track from start to finish.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-in">
+          <div class="step-num">1</div>
+          <h4>Consultation</h4>
+          <p>We meet to discuss your vision, budget, and timeline. No pressure, just honest advice.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-num">2</div>
+          <h4>Design &amp; Planning</h4>
+          <p>Our team creates detailed plans, secures permits, and provides a fixed-price estimate.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-num">3</div>
+          <h4>Construction</h4>
+          <p>We build with precision, keeping you updated with regular progress reports and site visits.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-num">4</div>
+          <h4>Completion</h4>
+          <p>Final walkthrough, touch-ups, and handover. Your satisfaction is our final measure of success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(135deg,var(--clr-darker),var(--clr-dark));color:var(--clr-white);text-align:center">
+    <div class="container">
+      <h2 class="section-title" style="color:var(--clr-white)">Ready to Get Started?</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.5);margin:0 auto 32px">Contact us for a free consultation and estimate.</p>
+      <a href="contact.html" class="btn btn-primary">Start Your Project &#8594;</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <p>&copy; 2026 ProNexus Construction Inc. All rights reserved. Kelowna, BC.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function(){
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(l){
+      l.addEventListener('click', function(){
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+  </script>
+</body>
+</html>

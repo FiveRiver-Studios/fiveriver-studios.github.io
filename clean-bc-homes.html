@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clean BC Homes Grant | ProNexus Construction - Kelowna BC</title>
+  <meta name="description" content="Learn about CleanBC Better Homes rebate programs and save on energy-efficient upgrades. ProNexus Construction works with a registered program contractor in Kelowna BC."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .program-hero {
+      background: linear-gradient(135deg, #0d5e3a 0%, #0a4a2e 50%, #1a1a2e 100%);
+      padding: 120px 0 80px; text-align: center; color: var(--clr-white);
+    }
+    .program-hero h1 { font-family: var(--ff-display); font-size: 3rem; margin-bottom: 16px; }
+    .program-hero h1 span { color: #6fcf97; }
+    .program-hero p { color: rgba(255,255,255,.6); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+    .program-hero .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(111,207,151,.15); border: 1px solid rgba(111,207,151,.3);
+      padding: 8px 20px; border-radius: 50px;
+      font-size: 0.85rem; color: #6fcf97; margin-bottom: 24px;
+    }
+
+    .quick-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+    .quick-stat {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      padding: 24px; border-radius: 10px; text-align: center;
+    }
+    .quick-stat h3 { font-family: var(--ff-display); font-size: 1.8rem; color: #6fcf97; margin-bottom: 4px; }
+    .quick-stat p { font-size: 0.8rem; color: rgba(255,255,255,.5); margin: 0; }
+
+    .program-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+    .info-card {
+      background: var(--clr-light); border-radius: 12px; padding: 40px 32px;
+      border-left: 4px solid var(--clr-primary);
+    }
+    .info-card.esp { border-left-color: #0d5e3a; }
+    .info-card.hrr { border-left-color: #c8963e; }
+    .info-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .info-card h3 small { font-size: 0.75rem; font-weight: 500; color: var(--clr-gray-light); display: block; margin-top: 2px; }
+    .info-card p { color: var(--clr-gray); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px; }
+    .info-card ul { list-style: disc; padding-left: 20px; }
+    .info-card ul li { color: var(--clr-gray); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.5; }
+    .info-card .rebate-amount { font-family: var(--ff-display); font-size: 2rem; color: var(--clr-primary); font-weight: 700; margin: 12px 0; }
+    .info-card.esp .rebate-amount { color: #0d5e3a; }
+
+    .rebate-table-wrap { overflow-x: auto; }
+    .rebate-table {
+      width: 100%; border-collapse: collapse; font-size: 0.9rem;
+    }
+    .rebate-table th {
+      background: var(--clr-dark); color: var(--clr-white); padding: 14px 16px; text-align: left; font-weight: 600;
+    }
+    .rebate-table td { padding: 14px 16px; border-bottom: 1px solid var(--clr-border); }
+    .rebate-table tr:nth-child(even) td { background: var(--clr-light); }
+    .rebate-table td:last-child { font-weight: 700; color: var(--clr-primary); }
+
+    .income-table-wrap { overflow-x: auto; margin: 24px 0; }
+    .income-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .income-table th { background: var(--clr-dark); color: var(--clr-white); padding: 12px 14px; text-align: left; font-weight: 600; }
+    .income-table td { padding: 12px 14px; border-bottom: 1px solid var(--clr-border); }
+    .income-table tr:nth-child(even) td { background: var(--clr-light); }
+
+    .eligibility-list { display: grid; gap: 16px; }
+    .eligibility-item {
+      display: flex; gap: 14px; padding: 20px; border-radius: 10px;
+      background: var(--clr-light); align-items: flex-start;
+    }
+    .eligibility-icon {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .eligibility-icon.check { background: rgba(16,185,129,.1); color: #10b981; }
+    .eligibility-icon.cross { background: rgba(239,68,68,.1); color: #ef4444; }
+    .eligibility-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .eligibility-item p { color: var(--clr-gray); font-size: 0.85rem; line-height: 1.5; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .process-card { text-align: center; padding: 32px 20px; position: relative; }
+    .process-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--clr-primary); color: var(--clr-white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; margin: 0 auto 16px;
+    }
+    .process-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .process-card p { color: var(--clr-gray); font-size: 0.85rem; line-height: 1.5; }
+
+    .intake-form-wrap {
+      background: var(--clr-light); border: 1px solid var(--clr-border);
+      padding: 48px; border-radius: 16px; max-width: 900px; margin: 0 auto;
+    }
+    .intake-form-wrap h3 { font-family: var(--ff-display); font-size: 1.8rem; margin-bottom: 8px; }
+    .intake-form-wrap > p { color: var(--clr-gray); margin-bottom: 32px; }
+    .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .intake-group { margin-bottom: 16px; }
+    .intake-group.full { grid-column: 1 / -1; }
+    .intake-group.half { grid-column: span 1; }
+    .intake-group label {
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: var(--clr-gray); margin-bottom: 6px;
+    }
+    .intake-group label .req { color: #ef4444; }
+    .intake-group input,
+    .intake-group textarea,
+    .intake-group select {
+      width: 100%; padding: 14px 16px; border-radius: 8px;
+      border: 1px solid var(--clr-border);
+      background: var(--clr-white); color: var(--clr-dark);
+      font-family: var(--ff-body); font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .intake-group input:focus,
+    .intake-group textarea:focus,
+    .intake-group select:focus {
+      outline: none; border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(200,150,62,.1);
+    }
+    .intake-group textarea { height: 100px; resize: vertical; }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0; }
+    .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; }
+    .checkbox-group label { font-size: 0.85rem; color: var(--clr-gray); margin: 0; cursor: pointer; }
+
+    .why-us-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .why-us-card { text-align: center; padding: 36px 24px; }
+    .why-us-card .icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(200,150,62,.1); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 1.4rem;
+    }
+    .why-us-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .why-us-card p { color: var(--clr-gray); font-size: 0.85rem; line-height: 1.6; }
+
+    .faq-grid { max-width: 800px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq-item { border: 1px solid var(--clr-border); border-radius: 10px; overflow: hidden; }
+    .faq-question {
+      padding: 20px 24px; font-weight: 600; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--clr-white); transition: var(--transition);
+    }
+    .faq-question:hover { background: var(--clr-light); }
+    .faq-question .arrow { transition: var(--transition); font-size: 0.8rem; }
+    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: var(--transition); padding: 0 24px;
+      color: var(--clr-gray); font-size: 0.9rem; line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+
+    @media (max-width: 1024px) {
+      .quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .program-info-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .program-hero h1 { font-size: 2rem; }
+      .quick-stats { grid-template-columns: 1fr; }
+      .quick-stat h3 { font-size: 1.4rem; }
+      .process-grid { grid-template-columns: 1fr; }
+      .why-us-grid { grid-template-columns: 1fr; }
+      .intake-grid { grid-template-columns: 1fr; }
+      .intake-form-wrap { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="clean-bc-homes.html" class="active">Clean BC Grant</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="program-hero">
+    <div class="container">
+      <div class="hero-badge">&#9733; Government-Funded Rebate Program</div>
+      <h1>CleanBC <span>Better Homes</span> Grant</h1>
+      <p>Save thousands on energy-efficient home upgrades with provincial rebates. ProNexus Construction works with a registered program contractor &mdash; we handle the paperwork so you save.</p>
+      <div class="quick-stats">
+        <div class="quick-stat"><h3>$19,000</h3><p>Max Heat Pump Rebate</p></div>
+        <div class="quick-stat"><h3>$9,500</h3><p>Max Window/Door Rebate</p></div>
+        <div class="quick-stat"><h3>$5,500</h3><p>Max Insulation Rebate</p></div>
+        <div class="quick-stat"><h3>$3,500</h3><p>Max Heat Pump Water Heater</p></div>
+      </div>
+      <p style="color:rgba(255,255,255,.45);font-size:0.78rem;margin-top:20px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.5">
+        All amounts shown are maximum available rebates. Actual rebate amounts vary by program, income level, and are subject to government approval and funding availability. Rebates are not guaranteed.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Program Overview</p>
+        <h2 class="section-title">Save on Energy Upgrades with CleanBC Rebates</h2>
+        <p class="section-desc">The CleanBC Better Homes initiative offers rebates on heat pumps, windows, insulation, and more. Two programs available &mdash; one income-qualified (ESP) and one open to all B.C. households (HRR).</p>
+      </div>
+      <div style="max-width:720px;margin:0 auto;text-align:center">
+        <p style="color:var(--clr-gray);font-size:1rem;line-height:1.8">ProNexus Construction works with a registered program contractor. We handle all the paperwork so you save without the hassle. Fill out the intake form below and we'll tell you what you qualify for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Available Rebates</p>
+        <h2 class="section-title">What Upgrades Qualify?</h2>
+        <p class="section-desc">Rebates available for a range of energy-efficient home upgrades. Amounts vary by program and income level.</p>
+      </div>
+      <div style="max-width:650px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Heat Pumps (whole home &amp; mini-split)</div>
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Windows &amp; Doors</div>
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Attic, Wall &amp; Basement Insulation</div>
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Heat Pump Water Heaters</div>
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Electrical Service Upgrades</div>
+          <div style="background:var(--clr-white);padding:16px 20px;border-radius:8px;border:1px solid var(--clr-border);font-size:0.9rem;font-weight:500">&#10003; Ventilation (HRV/ERV)</div>
+        </div>
+        <p style="color:var(--clr-gray);font-size:0.85rem;margin-top:20px;text-align:center;line-height:1.6">
+          Maximum rebates range from $800&ndash;$19,000 depending on the upgrade and program. Bonus rebates available when you complete 2+ upgrades.<br/>
+          <strong>All rebate amounts are maximums and are subject to government approval and funding availability.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Eligibility</p>
+        <h2 class="section-title">Is Your Home Eligible?</h2>
+        <p class="section-desc">Most B.C. homeowners with an existing home qualify. Not sure? Fill out the intake form and we'll check for you.</p>
+      </div>
+      <div class="eligibility-list" style="max-width:600px;margin:0 auto">
+        <div class="eligibility-item">
+          <div class="eligibility-icon check">&#10003;</div>
+          <div>
+            <h4>Primary residence in B.C., at least 12 months old</h4>
+          </div>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-icon check">&#10003;</div>
+          <div>
+            <h4>Single-family, duplex, triplex, townhome, or mobile home</h4>
+          </div>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-icon check">&#10003;</div>
+          <div>
+            <h4>Account with BC Hydro, FortisBC, or participating utility</h4>
+          </div>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-icon check">&#10003;</div>
+          <div>
+            <h4>Installed by a registered contractor</h4>
+          </div>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-icon cross">&#10007;</div>
+          <div>
+            <h4>Condos, apartments, new construction (under 12 months), garages &amp; outbuildings not eligible</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Why Choose ProNexus</p>
+        <h2 class="section-title">Your Trusted CleanBC Contractor</h2>
+        <p class="section-desc">We partner with a registered program contractor and handle all the paperwork for you.</p>
+      </div>
+      <div class="why-us-grid">
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#9889;</div>
+          <h4>Program Partner</h4>
+          <p>We work with an authorized CleanBC contractor to install eligible upgrades and submit rebate applications on your behalf.</p>
+        </div>
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#128221;</div>
+          <h4>Full Paperwork Handling</h4>
+          <p>From pre-registration to rebate submission, we manage all documentation so you don't have to.</p>
+        </div>
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#128200;</div>
+          <h4>Maximize Your Rebate</h4>
+          <p>We help you plan a bundle of upgrades that qualifies for bonus rebates &mdash; saving you even more.</p>
+        </div>
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#128295;</div>
+          <h4>Expert Installation</h4>
+          <p>Licensed, insured tradespeople with years of experience in energy-efficient home upgrades.</p>
+        </div>
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#127963;</div>
+          <h4>Kelowna-Based</h4>
+          <p>Locally owned and operated. We know the Okanagan climate and what works best in our region.</p>
+        </div>
+        <div class="card why-us-card fade-in">
+          <div class="icon">&#128176;</div>
+          <h4>Transparent Pricing</h4>
+          <p>Clear quotes with no hidden fees. We show you exactly what the rebate covers and what you pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Client Intake Form</p>
+        <h2 class="section-title">Check Your CleanBC Rebate Eligibility</h2>
+        <p class="section-desc">Fill out this form and we'll review your eligibility, explain available rebates, and contact you with a free estimate.</p>
+      </div>
+      <div class="intake-form-wrap">
+        <h3>Clean BC Homes Grant Intake</h3>
+        <p>Tell us about yourself and your home so we can determine which rebate programs you qualify for.</p>
+        <form id="cleanBCForm">
+          <div class="intake-grid">
+            <div class="intake-group">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required/>
+            </div>
+            <div class="intake-group">
+              <label for="phoneNum">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phoneNum" name="phoneNum" placeholder="(250) 555-xxxx" required/>
+            </div>
+            <div class="intake-group full">
+              <label for="emailAddr">Email Address <span class="req">*</span></label>
+              <input type="email" id="emailAddr" name="emailAddr" placeholder="you@example.com" required/>
+            </div>
+            <div class="intake-group">
+              <label for="propertyAddress">Property Address <span class="req">*</span></label>
+              <input type="text" id="propertyAddress" name="propertyAddress" placeholder="Street address, Kelowna BC" required/>
+            </div>
+            <div class="intake-group">
+              <label for="homeType">Home Type <span class="req">*</span></label>
+              <select id="homeType" name="homeType" required>
+                <option value="">Select...</option>
+                <option value="single-family">Single Family Home (Detached)</option>
+                <option value="duplex">Duplex / Triplex</option>
+                <option value="townhome">Row Home / Townhome</option>
+                <option value="mobile">Mobile Home (Permanent)</option>
+                <option value="secondary-suite">Secondary Suite</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="intake-group">
+              <label for="homeAge">Home Age <span class="req">*</span></label>
+              <select id="homeAge" name="homeAge" required>
+                <option value="">Select...</option>
+                <option value="under-1">Less than 1 year</option>
+                <option value="1-5">1&ndash;5 years</option>
+                <option value="5-15">5&ndash;15 years</option>
+                <option value="15-30">15&ndash;30 years</option>
+                <option value="30-plus">30+ years</option>
+              </select>
+            </div>
+            <div class="intake-group">
+              <label for="primaryHeat">Primary Heating Type <span class="req">*</span></label>
+              <select id="primaryHeat" name="primaryHeat" required>
+                <option value="">Select...</option>
+                <option value="electric">Electric (baseboards, furnace)</option>
+                <option value="natural-gas">Natural Gas</option>
+                <option value="propane">Propane</option>
+                <option value="oil">Oil</option>
+                <option value="wood">Wood / Pellet</option>
+                <option value="heat-pump">Existing Heat Pump</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="intake-group">
+              <label for="utility">Utility Provider <span class="req">*</span></label>
+              <select id="utility" name="utility" required>
+                <option value="">Select...</option>
+                <option value="bchydro">BC Hydro</option>
+                <option value="fortisbc-elec">FortisBC (Electric)</option>
+                <option value="fortisbc-gas">FortisBC (Natural Gas)</option>
+                <option value="city-penticton">City of Penticton</option>
+                <option value="summerland">District of Summerland</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="intake-group">
+              <label for="householdSize">People in Household <span class="req">*</span></label>
+              <select id="householdSize" name="householdSize" required>
+                <option value="">Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7+</option>
+              </select>
+            </div>
+            <div class="intake-group half">
+              <label for="incomeRange">Approximate Household Income <span class="req">*</span></label>
+              <select id="incomeRange" name="incomeRange" required>
+                <option value="">Select...</option>
+                <option value="under-47k">Under $47,000</option>
+                <option value="47k-62k">$47,000 &ndash; $61,697</option>
+                <option value="62k-100k">$61,697 &ndash; $99,891</option>
+                <option value="100k-125k">$99,891 &ndash; $124,358</option>
+                <option value="125k-150k">$124,358 &ndash; $152,884</option>
+                <option value="150k-185k">$152,884 &ndash; $185,620</option>
+                <option value="185k-210k">$185,620 &ndash; $210,528</option>
+                <option value="210k-plus">Over $210,528</option>
+              </select>
+            </div>
+            <div class="intake-group half">
+              <label for="propertyValue">Estimated Property Value</label>
+              <select id="propertyValue" name="propertyValue">
+                <option value="">Select...</option>
+                <option value="under-800k">Under $800,000</option>
+                <option value="800k-1m">$800,000 &ndash; $1,000,000</option>
+                <option value="1m-1.2m">$1,000,000 &ndash; $1,200,000</option>
+                <option value="1.2m-1.5m">$1,200,000 &ndash; $1,500,000</option>
+                <option value="1.5m-1.82m">$1,500,000 &ndash; $1,820,000</option>
+                <option value="over-1.82m">Over $1,820,000</option>
+              </select>
+            </div>
+            <div class="intake-group full">
+              <label>Upgrades You're Interested In <span class="req">*</span></label>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="heat-pump"/> Heat Pump</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="heat-pump-water-heater"/> Heat Pump Water Heater</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="insulation"/> Insulation</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="windows-doors"/> Windows &amp; Doors</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="electrical"/> Electrical Service Upgrade</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="ventilation"/> Ventilation (HRV/ERV)</label>
+                <label style="font-size:0.85rem;display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer"><input type="checkbox" name="upgrades" value="not-sure"/> Not Sure Yet</label>
+              </div>
+            </div>
+            <div class="intake-group full">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" placeholder="Any other details about your home or project..."></textarea>
+            </div>
+            <div class="intake-group full">
+              <div class="checkbox-group">
+                <input type="checkbox" id="consent" required/>
+                <label for="consent">I consent to ProNexus Construction contacting me about CleanBC rebate programs and my potential eligibility. <span class="req">*</span></label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px">
+            Check My Eligibility &#8594;
+          </button>
+        </form>
+        <p style="color:var(--clr-gray);font-size:0.78rem;margin-top:20px;text-align:center;line-height:1.5;border-top:1px solid var(--clr-border);padding-top:20px">
+          <strong>Disclaimer:</strong> All rebate amounts shown are maximum available amounts and are subject to change. Rebates are contingent on government approval, program eligibility, and funding availability. ProNexus Construction makes no guarantees that any particular rebate amount will be approved. Final rebate amounts are determined solely by the CleanBC program administrators.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Common questions about the CleanBC Better Homes rebate programs.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item open">
+          <div class="faq-question">Do I apply for the rebate myself? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">We work with a registered contractor who handles the application. We coordinate everything so you save upfront, no waiting.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How long does it take? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">Eligibility takes a few days. Installation is typically within 2&ndash;4 weeks. The rebate is deducted from your invoice upfront, so you save immediately.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I combine multiple upgrades? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">Yes &mdash; completing 2+ upgrades unlocks bonus rebates up to $2,000. We'll help you plan the best combination.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if I rent my home? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">Renters may be eligible with landlord consent and a utility account in the resident's name.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is there a deadline? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">Eligibility codes are valid for 6 months. We'll make sure everything is completed in time.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Not sure what I qualify for? <span class="arrow">&#9660;</span></div>
+          <div class="faq-answer">Fill out our intake form and we'll review your eligibility and walk you through every step.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(135deg,var(--clr-darker),var(--clr-dark));color:var(--clr-white);text-align:center">
+    <div class="container">
+      <h2 class="section-title" style="color:var(--clr-white)">Ready to Start Saving?</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.5);margin:0 auto 32px">Contact us today and let's find out which rebates you qualify for.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#cleanBCForm" class="btn btn-primary">Fill Out Intake Form &#8594;</a>
+        <a href="contact.html" class="btn btn-outline">General Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <p>&copy; 2026 ProNexus Construction Inc. All rights reserved. Kelowna, BC.</p>
+      <p style="color:var(--clr-gray);font-size:0.72rem;margin-top:8px;max-width:600px">
+        All rebate amounts referenced on this page are maximum available amounts and are subject to government approval, program eligibility, and funding availability. ProNexus Construction is not a registered CleanBC contractor but works with a registered program partner. Rebates are not guaranteed until approved by the program administrators.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function(){
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(l){
+      l.addEventListener('click', function(){
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(q){
+      q.addEventListener('click', function(){
+        this.parentElement.classList.toggle('open');
+      });
+    });
+
+    // Intake form
+    document.getElementById('cleanBCForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Thank you! We\'ll review your eligibility and contact you.';
+      btn.style.background = '#10b981';
+      btn.disabled = true;
+      setTimeout(function(){
+        btn.textContent = 'Check My Eligibility \u2192';
+        btn.style.background = '';
+        btn.disabled = false;
+        document.getElementById('cleanBCForm').reset();
+      }, 4000);
+    });
+
+    // Fade-in observer
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+  </script>
+</body>
+</html>

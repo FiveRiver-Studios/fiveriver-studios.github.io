@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | ProNexus Construction - Kelowna BC</title>
+  <meta name="description" content="Learn about ProNexus Construction - Kelowna's trusted custom home builder and renovation experts with over 12 years of experience."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .about-mission { background: var(--clr-light); }
+    .about-mission .grid-2 { align-items: center; }
+    .about-image {
+      width: 100%; height: 400px; border-radius: 12px;
+      background: linear-gradient(135deg, #2c2c4a 0%, #1a1a2e 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.15); font-size: 4rem;
+    }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .value-card { text-align: center; padding: 40px 24px; }
+    .value-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(200,150,62,.1); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 1.6rem;
+    }
+    .value-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .value-card p { color: var(--clr-gray); font-size: 0.9rem; line-height: 1.7; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .team-card { text-align: center; padding: 36px 24px; }
+    .team-avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: var(--clr-border); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-weight: 700; font-size: 1.6rem; color: var(--clr-gray);
+    }
+    .team-card h3 { font-size: 1.1rem; font-weight: 700; }
+    .team-card .role { color: var(--clr-primary); font-size: 0.85rem; font-weight: 600; margin: 4px 0 10px; }
+    .team-card p { color: var(--clr-gray); font-size: 0.9rem; }
+
+    .cert-badges { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+    .cert-badge {
+      background: var(--clr-white); border: 1px solid var(--clr-border);
+      padding: 20px 32px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .values-grid, .team-grid { grid-template-columns: 1fr; }
+      .about-image { height: 250px; }
+      .cert-badges { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="clean-bc-homes.html">Clean BC Grant</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color:var(--clr-primary-light)">About Us</p>
+      <h1>Built on <span style="color:var(--clr-primary)">Trust</span>, Driven by <span style="color:var(--clr-primary)">Quality</span></h1>
+      <p>Discover the story behind ProNexus Construction and the values that guide every project we undertake.</p>
+    </div>
+  </section>
+
+  <section class="about-mission">
+    <div class="container grid-2">
+      <div>
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Over a Decade of <span style="color:var(--clr-primary)">Okanagan Craftsmanship</span></h2>
+        <p>ProNexus Construction was founded in Kelowna with a simple mission: build homes that stand the test of time. What started as a two-person team has grown into one of the Okanagan's most respected residential construction companies.</p>
+        <p>We've had the privilege of shaping Kelowna's residential landscape &mdash; from custom lakefront estates in the Mission to family homes in Glenmore and renovations throughout West Kelowna and Lake Country.</p>
+        <p>Every project, whether a full custom build or a kitchen refresh, receives the same commitment to quality, transparency, and craftsmanship that has defined us from day one.</p>
+      </div>
+      <div class="about-image">&#127968;</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Values</p>
+        <h2 class="section-title">What We Stand For</h2>
+        <p class="section-desc">These core principles guide every decision, every build, and every client relationship.</p>
+      </div>
+      <div class="values-grid">
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#9878;</div>
+          <h3>Integrity First</h3>
+          <p>Honest communication, transparent pricing, and unwavering ethical standards. We do what we say and stand behind our work.</p>
+        </div>
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#9889;</div>
+          <h3>Uncompromising Quality</h3>
+          <p>We never cut corners. Every material, every joint, every finish meets the highest standard of craftsmanship.</p>
+        </div>
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#129309;</div>
+          <h3>Client Partnership</h3>
+          <p>Your vision drives every decision. We collaborate closely, keeping you informed and involved from blueprint to final walkthrough.</p>
+        </div>
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#127758;</div>
+          <h3>Community Roots</h3>
+          <p>As a locally owned company, we're proud to build the neighbourhoods we live in and support the Okanagan community.</p>
+        </div>
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#128200;</div>
+          <h3>Innovation</h3>
+          <p>We stay ahead of building science, energy-efficient methods, and modern design trends to deliver homes built for the future.</p>
+        </div>
+        <div class="card value-card fade-in">
+          <div class="value-icon">&#128247;</div>
+          <h3>Safety &amp; Accountability</h3>
+          <p>Every job site follows rigorous safety protocols. We're fully licensed, insured, and bonded for your peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--clr-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Team</p>
+        <h2 class="section-title">Meet the People Behind the Build</h2>
+        <p class="section-desc">Experienced professionals dedicated to bringing your vision to life.</p>
+      </div>
+      <div class="team-grid">
+        <div class="card team-card fade-in">
+          <div class="team-avatar">JD</div>
+          <h3>James Donaldson</h3>
+          <p class="role">Founder &amp; Lead Builder</p>
+          <p>With 20+ years in the industry, James leads every project with hands-on expertise and a relentless commitment to quality.</p>
+        </div>
+        <div class="card team-card fade-in">
+          <div class="team-avatar">SK</div>
+          <h3>Sarah Kowalski</h3>
+          <p class="role">Project Manager</p>
+          <p>Sarah keeps every build on schedule and on budget, coordinating trades and ensuring seamless communication with clients.</p>
+        </div>
+        <div class="card team-card fade-in">
+          <div class="team-avatar">MC</div>
+          <h3>Mike Chen</h3>
+          <p class="role">Senior Carpenter</p>
+          <p>Mike brings 15 years of precision craftsmanship to every project, from custom millwork to structural framing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Credentials</p>
+        <h2 class="section-title">Licensed, Certified, Insured</h2>
+        <p class="section-desc">We maintain the highest industry standards so you can build with confidence.</p>
+      </div>
+      <div class="cert-badges">
+        <div class="cert-badge">&#9989; BC Licensed Contractor</div>
+        <div class="cert-badge">&#9989; CHBA Certified</div>
+        <div class="cert-badge">&#9989; Fully Insured &amp; Bonded</div>
+        <div class="cert-badge">&#9989; WCB Clear</div>
+        <div class="cert-badge">&#9989; Energy Savings Program Registered</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Pro<span>Nexus</span></a>
+      <p>&copy; 2026 ProNexus Construction Inc. All rights reserved. Kelowna, BC.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function(){
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(l){
+      l.addEventListener('click', function(){
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+  </script>
+</body>
+</html>
