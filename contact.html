@@ -199,13 +199,34 @@
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       var btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Thank you! We\'ll be in touch.';
-      btn.style.background = '#10b981';
-      setTimeout(function(){
-        btn.textContent = 'Send Message \u2192';
-        btn.style.background = '';
-        document.getElementById('contactForm').reset();
-      }, 3000);
+      var form = this;
+      var data = new FormData(form);
+      data.append('formType', 'contact');
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch('https://pronexusconstruction.com/api/forms', {
+        method: 'POST',
+        body: data
+      }).then(function(r){ return r.json(); }).then(function(resp){
+        if(resp.success){
+          btn.textContent = 'Thank you! We\'ll be in touch.';
+          btn.style.background = '#10b981';
+          setTimeout(function(){
+            btn.textContent = 'Send Message \u2192';
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+          }, 3000);
+        } else {
+          throw new Error('Server error');
+        }
+      }).catch(function(){
+        btn.textContent = 'Something went wrong. Please email us directly.';
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+      });
     });
   </script>
 </body>

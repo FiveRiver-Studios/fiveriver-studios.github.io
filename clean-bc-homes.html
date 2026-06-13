@@ -550,15 +550,34 @@
     document.getElementById('cleanBCForm').addEventListener('submit', function(e){
       e.preventDefault();
       var btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Thank you! We\'ll review your eligibility and contact you.';
-      btn.style.background = '#10b981';
+      var form = this;
+      var data = new FormData(form);
+      data.append('formType', 'cleanbc');
+
+      btn.textContent = 'Submitting...';
       btn.disabled = true;
-      setTimeout(function(){
-        btn.textContent = 'Check My Eligibility \u2192';
-        btn.style.background = '';
+
+      fetch('https://pronexusconstruction.com/api/forms', {
+        method: 'POST',
+        body: data
+      }).then(function(r){ return r.json(); }).then(function(resp){
+        if(resp.success){
+          btn.textContent = 'Thank you! We\'ll review your eligibility and contact you.';
+          btn.style.background = '#10b981';
+          setTimeout(function(){
+            btn.textContent = 'Check My Eligibility \u2192';
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+          }, 4000);
+        } else {
+          throw new Error('Server error');
+        }
+      }).catch(function(){
+        btn.textContent = 'Something went wrong. Please email us directly.';
+        btn.style.background = '#ef4444';
         btn.disabled = false;
-        document.getElementById('cleanBCForm').reset();
-      }, 4000);
+      });
     });
 
     // Fade-in observer
