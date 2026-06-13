@@ -557,7 +557,7 @@
       btn.textContent = 'Submitting...';
       btn.disabled = true;
 
-      fetch('https://pronexusconstruction.com/api/forms', {
+      fetch('/api/forms', {
         method: 'POST',
         body: data
       }).then(function(r){ return r.json(); }).then(function(resp){

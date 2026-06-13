@@ -1,8 +1,0 @@
-name = "pronexus-forms"
-main = "workers/form-handler.js"
-compatibility_date = "2025-12-01"
-
-route = { pattern = "pronexusconstruction.com/api/forms", zone_id = "YOUR_ZONE_ID" }
-
-[env.production]
-vars = { SENDGRID_API_KEY = "", MAILGUN_API_KEY = "", MAILGUN_DOMAIN = "" }
