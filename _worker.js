@@ -1,12 +1,18 @@
 const EMAIL_TO = 'pronexusconstruction@yahoo.com';
 
-export async function onRequest(context) {
-  const { request } = context;
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-  if (request.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
-  }
+    if (url.pathname === '/api/forms' && request.method === 'POST') {
+      return handleForm(request, env);
+    }
 
+    return env.ASSETS.fetch(request);
+  },
+};
+
+async function handleForm(request, env) {
   const contentType = request.headers.get('content-type') || '';
 
   let formData;
@@ -32,7 +38,7 @@ export async function onRequest(context) {
   }
 
   try {
-    await sendEmail(subject, body);
+    await sendEmail(subject, body, env);
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'content-type': 'application/json' },
@@ -45,9 +51,8 @@ export async function onRequest(context) {
   }
 }
 
-async function sendEmail(subject, body) {
-  const sendGridKey = context.env.SENDGRID_API_KEY;
-
+async function sendEmail(subject, body, env) {
+  const sendGridKey = env.SENDGRID_API_KEY;
   if (sendGridKey) {
     const resp = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
@@ -62,24 +67,18 @@ async function sendEmail(subject, body) {
         content: [{ type: 'text/plain', value: body }],
       }),
     });
-
-    if (!resp.ok) {
-      const text = await resp.text();
-      throw new Error('SendGrid error: ' + text);
-    }
+    if (!resp.ok) throw new Error('SendGrid error: ' + (await resp.text()));
     return;
   }
 
-  const mailgunKey = context.env.MAILGUN_API_KEY;
-  const mailgunDomain = context.env.MAILGUN_DOMAIN;
-
+  const mailgunKey = env.MAILGUN_API_KEY;
+  const mailgunDomain = env.MAILGUN_DOMAIN;
   if (mailgunKey && mailgunDomain) {
     const fd = new URLSearchParams();
     fd.append('from', `ProNexus Website <noreply@${mailgunDomain}>`);
     fd.append('to', EMAIL_TO);
     fd.append('subject', subject);
     fd.append('text', body);
-
     const resp = await fetch(`https://api.mailgun.net/v3/${mailgunDomain}/messages`, {
       method: 'POST',
       headers: {
@@ -88,11 +87,7 @@ async function sendEmail(subject, body) {
       },
       body: fd,
     });
-
-    if (!resp.ok) {
-      const text = await resp.text();
-      throw new Error('Mailgun error: ' + text);
-    }
+    if (!resp.ok) throw new Error('Mailgun error: ' + (await resp.text()));
     return;
   }
 
