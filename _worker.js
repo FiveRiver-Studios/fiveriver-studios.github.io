@@ -1,9 +1,25 @@
 const EMAIL_TO = 'pronexusconstruction@yahoo.com';
+const ALLOWED_ORIGINS = [
+  'https://fiveriver-studios.github.io',
+  'https://www.fiveriver-studios.github.io',
+  'https://pronexusconstruction.com',
+  'https://www.pronexusconstruction.com',
+];
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
 
 export default {
   async fetch(request, env) {
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: corsHeaders });
+    }
+
     if (request.method !== 'POST') {
-      return new Response('Not found', { status: 404 });
+      return new Response('Not found', { status: 404, headers: corsHeaders });
     }
 
     const contentType = request.headers.get('content-type') || '';
@@ -31,15 +47,15 @@ export default {
     }
 
     try {
-      await sendEmail(subject, body, env);
-      return new Response(JSON.stringify({ success: true }), {
+      const emailResult = await sendEmail(subject, body, env);
+      return new Response(JSON.stringify({ success: true, info: emailResult }), {
         status: 200,
-        headers: { 'content-type': 'application/json' },
+        headers: { ...corsHeaders, 'content-type': 'application/json' },
       });
     } catch (err) {
       return new Response(JSON.stringify({ success: false, error: err.message }), {
         status: 500,
-        headers: { 'content-type': 'application/json' },
+        headers: { ...corsHeaders, 'content-type': 'application/json' },
       });
     }
   },
@@ -62,7 +78,7 @@ async function sendEmail(subject, body, env) {
       }),
     });
     if (!resp.ok) throw new Error('SendGrid error: ' + (await resp.text()));
-    return;
+    return 'Sent via SendGrid';
   }
 
   const mailgunKey = env.MAILGUN_API_KEY;
@@ -82,10 +98,8 @@ async function sendEmail(subject, body, env) {
       body: fd,
     });
     if (!resp.ok) throw new Error('Mailgun error: ' + (await resp.text()));
-    return;
+    return 'Sent via Mailgun';
   }
 
-  console.log('Email not sent - no API key configured');
-  console.log('Subject:', subject);
-  console.log('Body:', body);
+  return 'Logged (no email API configured)';
 }
